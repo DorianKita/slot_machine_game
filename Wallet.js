@@ -14,9 +14,9 @@ class Wallet {
         //updating wallet state
         this.changeWallet = (value, type = "+") => {
             if (typeof value === "number" && !isNaN(value)) {
-                if (type = "+") {
+                if (type === "+") {
                     return _money += value;
-                } else if (type + "-") {
+                } else if (type === "-") {
                     return _money -= value;
                 } else {
                     throw new Error("incorrect action type")
