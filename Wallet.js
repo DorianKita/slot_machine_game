@@ -10,6 +10,22 @@ class Wallet {
             if (money >= value) return true;
             return false;
         };
+
+        //updating wallet state
+        this.changeWallet = (value, type = "+") => {
+            if (typeof value === "number" && !isNaN(value)) {
+                if (type = "+") {
+                    return _money += value;
+                } else if (type + "-") {
+                    return _money -= value;
+                } else {
+                    throw new Error("incorrect action type")
+                }
+            } else {
+                console.log(typeof value);
+                throw new Error("wrong value")
+            }
+        }
     };
 };
 
