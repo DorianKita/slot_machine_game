@@ -5,9 +5,9 @@ class Game {
 
         document.getElementById("start").addEventListener("click", this.startGame);
         this.spanWallet = document.querySelector(".panel span.wallet");
-        this.boards = document.querySelectorAll("div.color");
+        this.boards = [...document.querySelectorAll("div.color")];
         this.inputBid = document.getElementById("bid");
-        this.spanResukt = document.querySelector(".score span.result");
+        this.spanResult = document.querySelector(".score span.result");
         this.spanGames = document.querySelector(".score span.number");
         this.spanWins = document.querySelector(".score span.win");
         this.spanLosses = document.querySelector(".score span.loss");
@@ -15,8 +15,21 @@ class Game {
         this.render();
     };
 
-    render() {
+    render(colors = ["grey", "grey", "grey"], money = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, wonMoney = 0) {
+        this.boards.forEach((board, index) => {
+            board.style.backgroundColor = colors[index];
+        });
 
+        this.spanWallet.textContent = money;
+        if (result) {
+            result = `You won ${wonMoney}`;
+        } else if (!result && result !== "") {
+            result = `You lost ${bid}`;
+        }
+        this.spanResult.textContent = result;
+        this.spanGames.textContent = stats[0];
+        this.spanWins.textContent = stats[1];
+        this.spanLosses.textContent = stats[2];
     };
 
     startGame() {
@@ -24,4 +37,3 @@ class Game {
     };
 };
 
-const game = new Game(200);
