@@ -10,6 +10,5 @@ class Result {
     }
 };
 
-Result.moneyWinInGame(false, 10);
 
-console.log(Result.checkIfWin(["red", "green", "blue"]))
+
