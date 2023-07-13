@@ -19,4 +19,4 @@ class Statistics {
     }
 };
 
-const stat = new Statistics();
+// const stat = new Statistics();
