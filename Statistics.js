@@ -7,7 +7,6 @@ class Statistics {
     addGameToStatistics(win, bid) {
         let gameResult = { win, bid }
         this.gameResults.push(gameResult)
-        console.log(gameResult)
     }
 
     //method for displaying game statistics
